@@ -1,0 +1,105 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+background-color: white;
+font-family: lemon 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#para1 {
+  text-align: center;
+  color: red;
+}
+.center {
+  text-align: center;
+  color: red;
+}
+
+.header {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 97%;
+  z-index: 1;
+}
+
+.headertext {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  border: 
+
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    gap: 50px;
+    border:
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  width: 100%;
+  border: ;
+
+}
+
+.galleryitem {
+  height: auto;
+  position: relative;
+}
+
+.galleryitem img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.bottomleft {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 40px;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.infoparent {
+  display: flex;
+  align-items: center;   /* vertical centering */
+  justify-content: center; /* horizontal centering (optional) */
+  height: 100vh;         /* or set a specific height */
+}
+
+
+.info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  width: 50%;
+  border: 
+  padding: 100px;
+
+}
+
+.infoitem {
+  height: auto;
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: justify;
+  border:
+}
+
+.infoitem img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
