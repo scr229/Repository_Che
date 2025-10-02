@@ -233,8 +233,32 @@ if (bg) bg.addEventListener('click', function (e) {
 	// Refresh related UI/state
 	updateFollow1Visibility();
 	updateBuoyFloatVisibility();
+	updatebuoyFoundVisibility();
 	updateDebug();
 });
 	
-	
+
+if (bg) bg.addEventListener('click', function (e) {
+	if (buoyGrab === 1) {
+		// When the content area is clicked, place the buoy if it's being held.
+		if (Background.image === "01_Background/Background_1.png") {
+			buoyPlaced = 1;
+			const x = e.pageX;
+			const y = e.pageY;
+			if (buoyFound) {
+				buoyFound.style.left = (x - 25) + 'px'; // Center the buoy (assuming 50px width)
+				buoyFound.style.top = (y - 50) + 'px'; // Adjust as needed to position above click point
+			}
+		}
+	}
+
+	// In all cases reset buoyGrab (buoy is no longer in the 'grab' state after clicking)
+	buoyGrab = 0;
+
+	// Refresh related UI/state
+	updateFollow1Visibility();
+	updateBuoyFloatVisibility();
+	updatebuoyFoundVisibility();
+	updateDebug();
+});
 

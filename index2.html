@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>03_Renders Gallery</title>
+        <link rel="stylesheet" href="style.css">
+        <style>
+            /* Small inline reset to ensure header spacing for this page */
+            header.header { background: transparent; }
+        </style>
+</head>
+<body>
+
+    <main class="content">
+        <header class="header">
+            <h1 style="text-align:center; margin: 14px 0;">03_Renders Gallery</h1>
+        </header>
+
+        <section id="gallery" aria-label="Renders gallery" style="padding-top:70px;">
+            <div id="galleryGrid" class="gallery-grid"></div>
+        </section>
+    </main>
+
+    <!-- Lightbox / modal for viewing larger image -->
+    <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog">
+        <button id="lightbox-close" class="lightbox-close" aria-label="Close">×</button>
+        <img id="lightbox-img" alt="">
+    </div>
+
+    <script>
+        // List of files in 03_Renders (kept as filenames so this page is portable)
+        const images = [
+            "Render)04.png",
+            "Render_01.png",
+            "Render_02-Recovered.png",
+            "Render_03.png",
+            "Render_05.png",
+            "Render_06.png",
+            "Render_07.png",
+            "Render_08.png",
+            "rENDER_09-Recovered.png",
+            "screen1.jpg",
+            "shutter-island_13.webp",
+            "pokemon-red-screenshot-1.jpg"
+        ];
+
+        const grid = document.getElementById('galleryGrid');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.getElementById('lightbox-close');
+
+        images.forEach(name => {
+            const img = document.createElement('img');
+            // encodeURI so spaces and special chars are handled
+            img.src = encodeURI('03_Renders/' + name);
+            img.alt = name;
+            img.className = 'gallery-item';
+            img.loading = 'lazy';
+            img.tabIndex = 0; // make keyboard-focusable
+            grid.appendChild(img);
+
+            img.addEventListener('click', () => openLightbox(img));
+            img.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openLightbox(img);
+                }
+            });
+        });
+
+        function openLightbox(img) {
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.style.display = 'flex';
+            lightbox.setAttribute('aria-hidden', 'false');
+        }
+
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+            lightbox.setAttribute('aria-hidden', 'true');
+            lightboxImg.src = '';
+        }
+
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+
+</body>
+</html>
