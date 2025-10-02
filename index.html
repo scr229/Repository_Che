@@ -4,66 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wave Energy Power Station</title>
+    <link rel="stylesheet" href="https://use.typekit.net/ixv1ere.css">    
     <link rel="stylesheet" href="style.css">
+    <style>
+        .handwrite {
+            font-family: "old-man-eloquent", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 40px;
+        }
+        .bodytext {
+            font-family: "edu-nsw-act-hand-precursive", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+    </style>
+
+    <!-- script.js is loaded at the end of the body so DOM elements exist when code runs -->
 </head>
 <body>
-
-    <img src="Render04 Wide.png" alt="alternatetext" width="100%">
- 
-    <div class="header">
-
-       <div class="container">
-
-            <img src="Logo.png" alt="Logo" width="200px">
-        
-            <div class="headertext">Configurations </div>
-
-            <div class="headertext">Design</div>
-
-            <div class="headertext">Order</div>
-
-        </div>
-
-    </div>
-
-    <div class="infoparent">
-        <div class="info">
-
-            <div class="infoitem">
-                <h2>Where it all begins</h2>
-                <p>Harness the power of the ocean with our cutting-edge Wave Energy Power Station. Designed to convert the relentless motion of sea waves into clean, renewable electricity, our system offers a sustainable solution to meet your energy needs. Whether you're looking to power a remote facility or contribute to a greener grid, our Wave Energy Power Station is engineered for efficiency, durability, and environmental harmony. Join us in riding the wave towards a brighter, more sustainable future.</p>
-                <br>
-                <p>Learn more⇲</p>
-            </div>
-
-            <div class="infoitem"><img src="Render_01.png" alt=""></div>
-        </div>
-
-    </div>
- 
-    <div class="gallery">
-        <div class="galleryitem">
-            <img src="RENDER_09 square.png" alt="">
-            <div class="bottomleft">The Lifestyle You Want</div>
-        </div>
-        
-        <div class="galleryitem">
-            <img src="Render_07 square.png" alt="">
-            <div class="bottomleft">Live on New Frontiers</div>
-        </div>
-
-        <div class="galleryitem">
-            <img src="Render_05 square.png" alt="">
-            <div class="bottomleft">Store and Analyze</div>
-        </div>
-
-        <div class="galleryitem">
-            <img src="Render_08 square.png" alt="">
-            <div class="bottomleft">Prepare for the Worst</div>
-        </div>
-        
-
-    </div>
     
+    <div class="handwrite"> The Lost Wave Energy Generator</div>
+    <div class="bodytext">Try to get the power going</div>
+
+    <!-- full-viewport background controlled by JS -->
+    <div id="bg" class="bg" aria-hidden="true"></div>
+
+    <!-- page content sits above the background -->
+    <main id="content" class="content">
+        
+        <div id="travelDiv"> </div>
+        <div id="returnDiv"></div>
+
+        <div id="buoyFound"><img src="02_Assets/Buoy_1.png" alt=""></div>
+
+        <div id="buoyInventory"><img src="02_Assets/Buoy_Icon.png" alt=""></div>
+
+        <div id="buoyFloat"><img src="02_Assets/Buoy_2.png" alt=""></div>
+
+        <div id="placeLand"></div>
+
+     
+
+    </main>
+
+    <div id="follow1"><img src="02_Assets/Buoy_Icon.png" alt=""></div>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+
+   
+  
+
 </body>
-</html>
+
+
+
+

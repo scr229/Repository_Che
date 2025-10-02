@@ -25,81 +25,113 @@ font-family: lemon 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   z-index: 1;
 }
 
-.headertext {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: white;
-  font-size: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center; 
-  border: 
-
-}
-
-.container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-    gap: 50px;
-    border:
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0;
+/* Background element that fills the viewport. The image is set via JS. */
+.bg {
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  background-size: cover;
   width: 100%;
-  border: ;
-
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: -1; /* sit behind page content */
 }
 
-.galleryitem {
-  height: auto;
+/* Content wrapper should sit above the background */
+.content {
   position: relative;
+  z-index: 0;
 }
 
-.galleryitem img {
-  width: 100%;
-  height: auto;
-  display: block;
+
+#travelDiv {
+  position: fixed;
+  width: 4%; 
+  height: 4%; 
+  top: 13%;
+  left: 74%;
+  border: 2px solid blue;
+  cursor: pointer;
 }
 
-.bottomleft {
+#returnDiv {
+  position: fixed;
+  width: 6%; 
+  height: 6%; 
+  top: 70%;
+  left: 52%;
+  border: 2px solid red;
+  cursor: pointer;
+}
+
+/* Make the buoy container positionable and allow it to size to the image's natural dimensions */
+#buoyFound {
+  position: fixed; /* allow top/left to work */
+  top: 85%;
+  left: 35%;
+  border: 2px solid red;
+  cursor: grab;
+  width: 6.7%;
+}
+
+#buoyFound img {
+  width: 100%;       /* image fills the container width */
+  height: auto;      /* keeps the original aspect ratio */
+}
+
+#buoyInventory {
+  position: fixed;
+  top: 50%;
+  left: 2.5%;
+  border: 2px solid green;
+  cursor: grab;
+  width: 2.88%;
+}
+
+#buoyInventory img {
+  width: 100%;       /* image fills the container width */
+  height: auto;      /* keeps the original aspect ratio */
+}
+
+#buoyFloat {
+  position: fixed;
+  border: 2px solid orange;
+  cursor: grab;
+  width: 3.5%;
+  display: none; /* initially hidden */
+}
+
+#buoyFloat img {
+  width: 100%;       /* image fills the container width */
+  height: auto;      /* keeps the original aspect ratio */
+}
+
+#follow1 {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
-  font-size: 40px;
-  color: white;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  width: 3%;
+  pointer-events: none; /* allows clicks to pass through to elements below */
+  z-index: 1000; /* ensure it's on top of other elements */
 }
 
-.infoparent {
-  display: flex;
-  align-items: center;   /* vertical centering */
-  justify-content: center; /* horizontal centering (optional) */
-  height: 100vh;         /* or set a specific height */
-}
-
-
-.info {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  width: 50%;
-  border: 
-  padding: 100px;
-
-}
-
-.infoitem {
-  height: auto;
-  position: relative;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-align: justify;
-  border:
-}
-
-.infoitem img {
+#follow1 img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
+  bottom: 100%;
+  right: 100%;
+}
+
+
+#placeLand {
+  background-color: blue;
+  opacity: 0.3;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(
+    0% 100%,
+    0% 50%,
+    50% 100%
+  );
 }
