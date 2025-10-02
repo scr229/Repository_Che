@@ -92,6 +92,7 @@ var buoyInven = 0; // Track if buoy is in inventory (0 = no, 1 = yes)
 var buoyPlaced = 1; // Track if buoy is placed in scene (0 = no, 1 = yes)
 var buoyGrab = 0; // Track if buoy is in inventory (0 = no, 1 = yes)
 var buoyFloatState = 0; // Track if buoy is floating (0 = no, 1 = yes)
+var buoyPower = 0; // Track if buoy has power (0 = no, 1 = yes)
 
 // --- Debug panel: show current values of buoyInven and buoyGrab ---
 // Create a small fixed panel in the page to display variable values for debugging.
@@ -238,18 +239,18 @@ if (bg) bg.addEventListener('click', function (e) {
 });
 	
 
-if (bg) bg.addEventListener('click', function (e) {
+
+
+if (placeLand) placeLand.addEventListener('click', function (e) {
 	if (buoyGrab === 1) {
 		// When the content area is clicked, place the buoy if it's being held.
-		if (Background.image === "01_Background/Background_1.png") {
-			buoyPlaced = 1;
+			buoyFloatState = 1;
 			const x = e.pageX;
 			const y = e.pageY;
-			if (buoyFound) {
-				buoyFound.style.left = (x - 25) + 'px'; // Center the buoy (assuming 50px width)
-				buoyFound.style.top = (y - 50) + 'px'; // Adjust as needed to position above click point
+			if (buoyFloat) {
+				buoyFloat.style.left = (x - 25) + 'px'; // Center the buoy (assuming 50px width)
+				buoyFloat.style.top = (y - 50) + 'px'; // Adjust as needed to position above click point
 			}
-		}
 	}
 
 	// In all cases reset buoyGrab (buoy is no longer in the 'grab' state after clicking)

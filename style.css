@@ -123,6 +123,18 @@ font-family: lemon 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   right: 100%;
 }
 
+#powerLevel {
+  position: fixed;
+  width: 6%; 
+  top: 80%;
+  left: 2%;
+  border: 2px solid green;
+}
+
+#powerLevel img {
+  width: 100%;       /* image fills the container width */
+} 
+
 
 #placeLand {
   background-color: blue;
@@ -131,6 +143,7 @@ font-family: lemon 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   top: 0;
   width: 100%;
   height: 100%;
+  cursor: pointer;
   clip-path: polygon(
     0% 100%,
     0% 50%,
