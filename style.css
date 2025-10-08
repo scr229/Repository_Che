@@ -1,0 +1,229 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+background-color: white;
+font-family: lemon 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#para1 {
+  text-align: center;
+  color: red;
+}
+.center {
+  text-align: center;
+  color: red;
+}
+
+.header {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 97%;
+  z-index: 1;
+}
+
+/* Background element that fills the viewport. The image is set via JS. */
+.bg {
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  background-size: cover;
+  width: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: -1; /* sit behind page content */
+}
+
+/* Content wrapper should sit above the background */
+.content {
+  position: relative;
+  z-index: 0;
+}
+
+
+#travelDiv {
+  position: fixed;
+  width: 4%; 
+  height: 4%; 
+  top: 13%;
+  left: 74%;
+  border: 2px solid blue;
+  cursor: pointer;
+}
+
+#returnDiv {
+  position: fixed;
+  width: 6%; 
+  height: 6%; 
+  top: 70%;
+  left: 52%;
+  border: 2px solid red;
+  cursor: pointer;
+}
+
+/* Make the buoy container positionable and allow it to size to the image's natural dimensions */
+#buoyFound {
+  position: fixed; /* allow top/left to work */
+  top: 85%;
+  left: 35%;
+  border: 2px solid red;
+  cursor: grab;
+  width: 6.7%;
+}
+
+#buoyFound img {
+  width: 100%;       /* image fills the container width */
+  height: auto;      /* keeps the original aspect ratio */
+}
+
+#buoyInventory {
+  position: fixed;
+  top: 50%;
+  left: 2.5%;
+  border: 2px solid green;
+  cursor: grab;
+  width: 2.88%;
+  z-index: 1000; /* ensure it's on top of other elements */
+
+}
+
+#buoyInventory img {
+  width: 100%;       /* image fills the container width */
+  height: auto;      /* keeps the original aspect ratio */
+}
+
+#buoyFloat {
+  position: fixed;
+  border: 2px solid orange;
+  cursor: grab;
+  width: 3.5%;
+  display: none; /* initially hidden */
+  z-index: 1000; /* ensure it's on top of other elements */
+}
+
+#buoyFloat img {
+  width: 100%;       /* image fills the container width */
+  height: auto;      /* keeps the original aspect ratio */
+}
+
+#follow1 {
+  position: absolute;
+  text-align: center;
+  width: 3%;
+  pointer-events: none; /* allows clicks to pass through to elements below */
+  z-index: 1000; /* ensure it's on top of other elements */
+}
+
+#follow1 img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  bottom: 100%;
+  right: 100%;
+}
+
+#powerLevel {
+  position: fixed;
+  width: 6%; 
+  top: 80%;
+  left: 2%;
+  border: 2px solid green;
+}
+
+#powerLevel img {
+  width: 100%;       /* image fills the container width */
+} 
+
+
+#placeLand {
+  background-color: blue;
+  opacity: 0.3;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  clip-path: polygon(
+    0% 100%,
+    0% 50%,
+    50% 100%
+  );
+}
+
+#placeWater1 {
+  background-color: rgb(255, 60, 0);
+  opacity: 0.3;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  clip-path: polygon(
+    0% 50%,
+    0% 25%,
+    75% 100%,
+    50% 100%
+  );
+}
+
+/* Gallery grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  padding: 18px;
+  max-width: 1200px;
+  margin: 0 auto 60px auto;
+}
+
+.gallery-item {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.gallery-item:focus,
+.gallery-item:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  outline: none;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: none; /* toggled via JS */
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.8);
+  z-index: 2000;
+  padding: 24px;
+}
+.lightbox img {
+  max-width: 96%;
+  max-height: 92%;
+  border-radius: 6px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+.lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-size: 36px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .gallery-item { height: 120px; }
+}
